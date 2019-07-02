@@ -9,7 +9,7 @@
     $HostName = "localhost";
     
     //Define your database name here.
-    $DatabaseName = "order";
+    $DatabaseName = "eventnigeria";
     
     //Define your database username here.
     $HostUser = "root";

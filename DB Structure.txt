@@ -1,22 +1,18 @@
-users --- u_id, first_name, last_name, phone, address, email, username, pass, company_name, roles
-
-supplier --- s_id, supplier_name
-
-client--- c_id, consignee_name, s_id, buyer_name, cbm, quantity_incoming, eta
-
-order --- o_id, c_id, s_id, quantity_ordered, cbm, eta
+A web app that displays upcoming events showing the event name, event description, event category, event image, event location, event entry fee, event reviews, event date, event timing, event official website if any. We should be able to search and filter by location, date, category. We should have a add to calendar feature that will be used to send reminders to the user 7days , 3days, 1day to the event.  A share events link should be added, to share the event on WhatsApp, Instagram, Facebook, Twitter, email etc. Similar events should appear below the page. A trend page should also be available to display social media posts with the app name hashtag.
 
 
-create table users(u_id int PRIMARY KEY AUTO_INCREMENT,first_name varchar(255), last_name varchar(255), phone varchar(255), address varchar(255), email varchar(255), username varchar(255), pass varchar(255), company_name varchar(255), roles varchar(255));
-
-create table supplier(s_id int PRIMARY KEY AUTO_INCREMENT,supplier_name varchar(255));
-
-create table client (c_id int PRIMARY KEY AUTO_INCREMENT, s_id int,consignee_name varchar(255), buyer_name varchar(255), cbm varchar(255), quantity_incoming varchar(255), eta varchar(255),FOREIGN KEY(s_id) REFERENCES supplier(s_id)  );
+========================================================================================================================================================
 
 
-create table orders(o_id int PRIMARY KEY AUTO_INCREMENT, c_id int, quantity_ordered varchar(255), cbm varchar(255), eta varchar(255), FOREIGN KEY (c_id) REFERENCES client(c_id))
+category -- c_id , c_name
+
+event -- e_id, name, description, c_id, location, fee, reviews, date, start_time, end_time, website
 
 
+
+create table category (c_id int PRIMARY KEY AUTO_INCREMENT,c_name varchar(255));
+
+create table event (e_id int PRIMARY KEY AUTO_INCREMENT, name varchar(255), description varchar(255), c_id int, location varchar(255), fees varchar(255), reviews varchar(255), date varchar(255), start_time varchar(255), end_time varchar(255), website varchar(255),FOREIGN KEY(c_id) REFERENCES category(c_id));
 
 
 

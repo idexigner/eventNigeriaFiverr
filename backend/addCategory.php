@@ -8,13 +8,13 @@ include 'DBConfig.php';
 	 // decoding the received JSON and store into $obj variable.
 	 $obj = json_decode($json,true);
 
-     $supplierName = htmlspecialchars($obj['supplierName']);
+     $categoryName = htmlspecialchars($obj['categoryName']);
 
     //  $academicStr = strip_tags(mysqli_real_escape_string($con,trim($obj['academicStr'])));
     //  $professionalStr = strip_tags(mysqli_real_escape_string($con,trim($obj['professionalStr'])));
     
     
-    $result = $con->query("insert into supplier(supplier_name) values ('$supplierName')");
+    $result = $con->query("insert into category(c_name) values ('$categoryName')");
 
     if($result){
 				echo json_encode("Success");

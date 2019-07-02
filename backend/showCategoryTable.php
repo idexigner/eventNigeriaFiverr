@@ -1,17 +1,19 @@
 <?php 
-
 include 'DBConfig.php';
-
+// Create connection
 
 
 	$json = file_get_contents('php://input');
  
 	 // decoding the received JSON and store into $obj variable.
-     $obj = json_decode($json,true);
-     
-     $id = $obj['id'];
+	 $obj = json_decode($json,true);
 
-	$result= $con->query("select * from supplier where s_id='$id'");
+
+		 $q = "SELECT c_id,c_name FROM category";
+	
+	
+
+	$result= $con->query($q);
 	
 	
 		if($result->num_rows>0){
@@ -27,11 +29,9 @@ include 'DBConfig.php';
 		}
 		else
 		{		
-		    echo  json_encode('No Transactions'); // alert msg in react native
+		    echo  json_encode('No Data'); // alert msg in react native
 
 		}
 	
-
+	
 ?>
-
-

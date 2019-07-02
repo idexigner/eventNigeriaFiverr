@@ -2,7 +2,7 @@ var Api='';
 
 
 if(window.location.href.includes("localhost")){
-    Api = "http://localhost/order/";
+    Api = "http://localhost/event/";
 }
 else{
     Api="http://omysstudent.com/omys_admin/";
@@ -10,22 +10,24 @@ else{
 
 
 
-function addSupplier(){
-   
-    let supplierName = document.getElementById("supplierName").value;
+function addCategory(){
+//    debugger
+    let categoryName = document.getElementById("categoryName").value;
     let checkRequired = true; 
 
-    if(supplierName == ''){
-        alert("Kindly Type Supplier Name")
+    if(categoryName == ''){
+        alert("Kindly Type Category Name")
         checkRequired = false;
     }
 
     if(checkRequired){
         console.log("insertCheck");
-    fetch(Api + 'backend/addSupplier.php', {
+        console.log(categoryName);
+        console.log(Api);
+    fetch(Api+'backend/addCategory.php', {
         method: 'POST',
         body: JSON.stringify({
-            supplierName: supplierName
+            categoryName: categoryName
         }),
         headers: new Headers({
             'Content-Type': 'application/json',
@@ -36,15 +38,15 @@ function addSupplier(){
         .then((responseJson) => {
             console.log(responseJson);
             if(responseJson == "Success"){
-                alert("Supplier Successfully Inserted");
-                window.location.href = "supplier.php";
+                alert("Category Successfully Inserted");
+                window.location.href = "category.php";
             }
             
         })
         .catch((error) => {
             console.log(error);
             alert("Not Inserted");
-            window.location.href = "supplier.php";
+            window.location.href = "category.php";
 
         });
     }

@@ -6,7 +6,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Supplier</title>
+    <title>Category</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
     <link href="assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
@@ -27,16 +27,16 @@
           }
 
           select {
-    color: #71748d;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    background-position: 98% 52%;
-    background-size: 12px;
-    background-repeat: no-repeat;
-    background-image: url('img/down-arrow.svg');
-    padding: 5px 15px;
-    border: 1px solid #d2d2e4;
-    border-radius: 2px;
+        color: #71748d;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background-position: 98% 52%;
+        background-size: 12px;
+        background-repeat: no-repeat;
+        background-image: url('img/down-arrow.svg');
+        padding: 5px 15px;
+        border: 1px solid #d2d2e4;
+        border-radius: 2px;
 
 
 }
@@ -79,17 +79,8 @@
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="page-header">
-                            <h2 class="pageheader-title">Supplier</h2>
-                            <!-- <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p> -->
-                            <!-- <div class="page-breadcrumb">
-                                <nav aria-label="breadcrumb">
-                                    <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Forms</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Form Validations</li>
-                                    </ol>
-                                </nav>
-                            </div> -->
+                            <h2 class="pageheader-title">Category</h2>
+                            
                         </div>
                     </div>
                 </div>
@@ -105,19 +96,19 @@
                         <!-- ============================================================== -->
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="card">
-                                <h5 class="card-header">Add New Supplier</h5>
+                                <h5 class="card-header">Add New Category</h5>
                                 <div class="card-body">
                                    
                                         <div class="form-group row">
-                                            <label class="col-12 col-sm-3 col-form-label text-sm-right">Supplier Name</label>
+                                            <label class="col-12 col-sm-3 col-form-label text-sm-right">Category Name</label>
                                             <div class="col-12 col-sm-8 col-lg-6">
-                                                <input type="text" required="" id="supplierName" placeholder="Type Supplier Name" class="form-control">
+                                                <input type="text" required="" id="categoryName" placeholder="Type Category Name" class="form-control">
                                             </div>
                                         </div>
                                   
                                         <div class="form-group row text-right">
                                             <div class="col col-sm-10 col-lg-9 offset-sm-1 offset-lg-0">
-                                                <button type="button" onclick="addSupplier()" class="btn btn-space btn-primary">Submit</button>
+                                                <button type="button" onclick="addCategory()" class="btn btn-space btn-primary">Submit</button>
                                                 <button class="btn btn-space btn-secondary">Cancel</button>
                                             </div>
                                         </div>
@@ -139,21 +130,21 @@
                         <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="card">
-                                <h5 class="card-header">Supplier List</h5>
+                                <h5 class="card-header">Category List</h5>
                                 <div class="card-body">
-                        <table id="supplierWholeTable" class="display table table-hover table-striped" style="width:100%">
+                        <table id="categoryWholeTable" class="display table table-hover table-striped" style="width:100%">
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Supplier Name</th>
+                            <th>Category Name</th>
                             
                         </tr>
                     </thead>
-                    <tbody id="supplierTableBody"></tbody>
+                    <tbody id="categoryTableBody"></tbody>
                     <tfoot>
                     <tr>
                             <th>ID</th>
-                            <th>Supplier Name</th>
+                            <th>Category Name</th>
                             
                         </tr>
                     </tfoot>
@@ -176,7 +167,7 @@
            
             </div>
 
-            <?php include_once("modalSupplier.php") ?>
+            <?php include_once("modalCategory.php") ?>
             <!-- ============================================================== -->
             <?php include_once("footer.php")?>
             <!-- ============================================================== -->
@@ -220,15 +211,15 @@
 // $(window).load(function() {
             // alert("Ready");
     // Setup - add a text input to each footer cell
-    dataTableSupplier();
-    function dataTableSupplier(){
-console.log("Datatable",document.getElementById("supplierTableBody").innerHTML.length);
-console.log("Datatable HTMl",document.getElementById("supplierTableBody").innerHTML);
-    if(document.getElementById("supplierTableBody").innerHTML.length>0){
+    dataTableCategory();
+    function dataTableCategory(){
+// console.log("Datatable",document.getElementById("categoryTableBody").innerHTML.length);
+// console.log("Datatable HTMl",document.getElementById("categoryTableBody").innerHTML);
+    if(document.getElementById("categoryTableBody").innerHTML.length>0){
 
     
-    $('#supplierWholeTable thead tr').clone(true).appendTo( '#supplierWholeTable thead' );
-    $('#supplierWholeTable thead tr:eq(1) th').each( function (i) {
+    $('#categoryWholeTable thead tr').clone(true).appendTo( '#categoryWholeTable thead' );
+    $('#categoryWholeTable thead tr:eq(1) th').each( function (i) {
         var title = $(this).text();
         $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
  
@@ -243,14 +234,14 @@ console.log("Datatable HTMl",document.getElementById("supplierTableBody").innerH
     } );
 
  
-    var table = $('#supplierWholeTable').DataTable( {
+    var table = $('#categoryWholeTable').DataTable( {
         orderCellsTop: true,
         fixedHeader: true
     } );
 }
 else{
     setTimeout(() => {
-        dataTableSupplier();
+        dataTableCategory();
     }, 300);
 }
 // } );

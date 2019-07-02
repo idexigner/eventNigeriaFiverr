@@ -10,9 +10,12 @@ include 'DBConfig.php';
 	 $obj = json_decode($json,true);
 
      $s_id = $obj['s_id'];
+     $categoryName = $obj['categoryName'];
      
 
-    $result= $con->query("delete from supplier where s_id='$s_id'");
+
+
+    $result= $con->query("update category set c_name='$categoryName'  where c_id='$s_id'");
 	
     if($result){
 				echo json_encode("Success");
@@ -20,11 +23,10 @@ include 'DBConfig.php';
 			else{
 			   echo json_encode(mysqli_error($con)); // our query fail 		
 
-                echo "Unsuccesfull";
+                echo "Failed";
 			}
 
 
-	
 
 ?>
 

@@ -62,7 +62,7 @@
                                 </div>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link" href="supplier.php" ><i class="fa fa-fw fa-people-carry"></i>Supplier</a>
+                                <a class="nav-link" href="category.php" ><i class="fa fa-fw fa-people-carry"></i>Category</a>
                             </li>
                             <li class="nav-item ">
                                 <a class="nav-link" href="#" ><i class="fa fa-fw fa-user"></i>Customer</a>
