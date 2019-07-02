@@ -1,0 +1,22 @@
+users --- u_id, first_name, last_name, phone, address, email, username, pass, company_name, roles
+
+supplier --- s_id, supplier_name
+
+client--- c_id, consignee_name, s_id, buyer_name, cbm, quantity_incoming, eta
+
+order --- o_id, c_id, s_id, quantity_ordered, cbm, eta
+
+
+create table users(u_id int PRIMARY KEY AUTO_INCREMENT,first_name varchar(255), last_name varchar(255), phone varchar(255), address varchar(255), email varchar(255), username varchar(255), pass varchar(255), company_name varchar(255), roles varchar(255));
+
+create table supplier(s_id int PRIMARY KEY AUTO_INCREMENT,supplier_name varchar(255));
+
+create table client (c_id int PRIMARY KEY AUTO_INCREMENT, s_id int,consignee_name varchar(255), buyer_name varchar(255), cbm varchar(255), quantity_incoming varchar(255), eta varchar(255),FOREIGN KEY(s_id) REFERENCES supplier(s_id)  );
+
+
+create table orders(o_id int PRIMARY KEY AUTO_INCREMENT, c_id int, quantity_ordered varchar(255), cbm varchar(255), eta varchar(255), FOREIGN KEY (c_id) REFERENCES client(c_id))
+
+
+
+
+
