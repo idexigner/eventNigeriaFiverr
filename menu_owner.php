@@ -65,7 +65,7 @@
                                 <a class="nav-link" href="category.php" ><i class="fa fa-fw fa-people-carry"></i>Category</a>
                             </li>
                             <li class="nav-item ">
-                                <a class="nav-link" href="#" ><i class="fa fa-fw fa-user"></i>Customer</a>
+                                <a class="nav-link" href="event.php" ><i class="fa fa-fw fa-user"></i>Event</a>
                             </li>
                             <li class="nav-item ">
                                 <a class="nav-link" href="#" ><i class="fa fa-fw fa-cubes"></i>Order</a>
