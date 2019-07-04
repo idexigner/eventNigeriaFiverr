@@ -99,15 +99,116 @@
                                 <h5 class="card-header">Add New Event</h5>
                                 <div class="card-body">
                                    
-                                        <div class="form-group row">
-                                            <label class="col-12 col-sm-3 col-form-label text-sm-right">Category Name</label>
-                                            <div class="col-12 col-sm-8 col-lg-6">
-                                                <input type="text" required="" id="categoryName" placeholder="Type Category Name" class="form-control">
+                                        <div class="row">
+                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-3">
+                                                <label for="">Event name</label>
+                                                <input type="text" class="form-control" id="" placeholder="Type Event Name" value="Type Event Name" required>
+                                                
                                             </div>
-                                        </div>
+                                            
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-3">
+                                                <label for="">Event Description</label>
+                                                <textarea name="" rows="2" class="form-control" placeholder="Type Event Description" id="" cols="30" rows="10"></textarea>
+                                                
+                                            </div>
+
+
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-3">
+                                                <label for="">Event Category</label>
+                                                <select class="form-control">
+                                                <option value="volvo">Select Event Category</option>
+                                                <option value="saab">Saab</option>
+                                                <option value="mercedes">Mercedes</option>
+                                                <option value="audi">Audi</option>
+                                                </select>                                                
+                                            </div>
+
+
+
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 mb-3">
+                                                <label for="">Event Location</label>
+                                                <input type="text" class="form-control" id="" placeholder="Type Event Location" value="Type Event Name" required>
+                                                
+                                            </div>
+
+
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 mb-3">
+                                                <label for="">Event Fees</label>
+                                                <input type="text" class="form-control" id="" placeholder="Type Event Fees" value="Type Event Name" required>
+                                                
+                                            </div>
+
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-3">
+                                                <label for="">Event Reviews</label>
+                                                <input type="text" class="form-control" id="" placeholder="Type Event Reviews" value="Type Event Name" required>
+                                                
+                                            </div>
+
+
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-3">
+                                            <label for="">Event Date</label>
+                                            <!-- <h5>Event Date</h5> -->
+                                            <div class="form-group">
+                                                <div class="input-group date" id="datetimepicker4" data-target-input="nearest">
+                                                    <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker4" />
+                                                    <div class="input-group-append" data-target="#datetimepicker4" data-toggle="datetimepicker">
+                                                        <div class="input-group-text"><i class="far fa-calendar-alt"></i></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            </div>
+
+
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 mb-3">
+                                                <label for="">Event Start Time</label>
+                                                <div class="form-group">
+                                                    <div class="input-group date" id="datetimepicker3" data-target-input="nearest">
+                                                        <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker3" />
+                                                        <div class="input-group-append" data-target="#datetimepicker3" data-toggle="datetimepicker">
+                                                            <div class="input-group-text"><i class="far fa-clock"></i></div>
+                                                        </div>
+                                                    </div>
+                                                </div>                                                
+                                            </div>
+
+
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 mb-3">
+                                                <label for="">Event End Time</label>
+                                                <div class="form-group">
+                                                    <div class="input-group date" id="datetimepicker3" data-target-input="nearest">
+                                                        <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker3" />
+                                                        <div class="input-group-append" data-target="#datetimepicker3" data-toggle="datetimepicker">
+                                                            <div class="input-group-text"><i class="far fa-clock"></i></div>
+                                                        </div>
+                                                    </div>
+                                                </div>                                                
+                                            </div>
+
+
+
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-3">
+                                                <label for="">Event Website</label>
+                                                <input type="text" class="form-control" id="" placeholder="Type Event Website" value="Type Event Name" required>
+                                                
+                                            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                           
+                                        </div><!--row-->
                                   
                                         <div class="form-group row text-right">
-                                            <div class="col col-sm-10 col-lg-9 offset-sm-1 offset-lg-0">
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                                 <button type="button" onclick="addCategory()" class="btn btn-space btn-primary">Submit</button>
                                                 <button class="btn btn-space btn-secondary">Cancel</button>
                                             </div>
@@ -130,9 +231,9 @@
                         <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="card">
-                                <h5 class="card-header">Category List</h5>
+                                <h5 class="card-header">Event List</h5>
                                 <div class="card-body">
-                        <table id="categoryWholeTable" class="display table table-hover table-striped" style="width:100%">
+                        <!-- <table id="categoryWholeTable" class="display table table-hover table-striped" style="width:100%">
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -148,7 +249,7 @@
                             
                         </tr>
                     </tfoot>
-                </table>
+                </table> -->
 </div>
 </div>
 </div>
@@ -272,6 +373,10 @@ else{
         }, false);
     })();
     </script>
+
+<script src="assets/vendor/datepicker/moment.js"></script>
+    <script src="assets/vendor/datepicker/tempusdominus-bootstrap-4.js"></script>
+    <script src="assets/vendor/datepicker/datepicker.js"></script>
 </body>
  
 </html>
