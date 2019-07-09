@@ -1,63 +1,3 @@
-<!doctype html>
-<html lang="en">
-
- 
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Category</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
-    <link href="assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/libs/css/style.css">
-    <link rel="stylesheet" href="assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
-    <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/fixedheader/3.1.5/css/fixedHeader.dataTables.min.css" />
-    <script src="https://code.jquery.com/jquery-3.3.1.js"></script> -->
-
-    <style>
- thead input {
-        width: 100%;
-    }
-    table thead, table>thead>tr>th{
-        background-color: #5969ff;
-        color:white !important; 
-        
-          }
-
-          select {
-        color: #71748d;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        background-position: 98% 52%;
-        background-size: 12px;
-        background-repeat: no-repeat;
-        background-image: url('img/down-arrow.svg');
-        padding: 5px 15px;
-        border: 1px solid #d2d2e4;
-        border-radius: 2px;
-
-
-}
-
-    
-    </style>
-
- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"/>
- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/fixedheader/3.1.5/css/fixedHeader.dataTables.min.css"/>
- <!-- <script src="https://code.jquery.com/jquery-3.3.1.js"></script> -->
-
-</head>
-
-<body>
-    <!-- ============================================================== -->
-    <!-- main wrapper -->
-    <!-- ============================================================== -->
-    <div class="dashboard-main-wrapper">
-         <!-- ============================================================== -->
-     
-        
 
 
         <?php include_once("header.php") ?>
@@ -189,8 +129,9 @@
     <script src="assets/vendor/slimscroll/jquery.slimscroll.js"></script>
     <script src="assets/vendor/parsley/parsley.js"></script>
     <script src="assets/libs/js/main-js.js"></script>
-    <script src="js/custom.js"></script>
+    
     <script src="js/tableLoad.js"></script>
+    <script src="js/custom.js"></script>
     <script>
     $('#form').parsley();
 
@@ -253,6 +194,8 @@ else{
 
 
     <script>
+        window.onload = onLoadFunction('categoryPage');
+
     // Example starter JavaScript for disabling form submissions if there are invalid fields
     (function() {
         'use strict';

@@ -21,6 +21,25 @@ jQuery(document).ready(function($) {
         });
     }
 
+    if ($("#eventStartTime").length) {
+
+        $('#eventStartTime').datetimepicker({
+            format: 'LT'
+        });
+    }
+    if ($("#eventEndTime").length) {
+
+        $('#eventEndTime').datetimepicker({
+            format: 'LT'
+        });
+    }
+    if ($("#eventStartTime").length) {
+
+        $('#datetimepicker3').datetimepicker({
+            format: 'LT'
+        });
+    }
+
 
     if ($("#datetimepicker3").length) {
 
