@@ -15,7 +15,7 @@ include 'DBConfig.php';
      $eventLongitude = htmlspecialchars($obj['eventLongitude']);
      $eventLatitude = htmlspecialchars($obj['eventLatitude']);
      $eventFees = htmlspecialchars($obj['eventFees']);
-     $eventTicket = htmlspecialchars($obj['eventTicket']);
+     $eventTicket = $obj['eventTicket'];
      $eventDateInput = htmlspecialchars($obj['eventDateInput']);
      $eventStartTimeInput = htmlspecialchars($obj['eventStartTimeInput']);
      $eventEndTimeInput = htmlspecialchars($obj['eventEndTimeInput']);

@@ -12,9 +12,9 @@ create table users(u_id int PRIMARY KEY AUTO_INCREMENT,u_name varchar(255),phone
 
 create table category (c_id int PRIMARY KEY AUTO_INCREMENT,c_name varchar(255));
 
-create table event (e_id int PRIMARY KEY AUTO_INCREMENT, name varchar(255), description varchar(255), c_id int, location varchar(255),longitude varchar(255), latitude varchar(255), fees varchar(255), ticket varchar(5000), date varchar(255), start_time varchar(255), end_time varchar(255), website varchar(255),image_name varchar(255),image_length varchar(255), FOREIGN KEY(c_id) REFERENCES category(c_id));
+create table eventa (e_id int PRIMARY KEY AUTO_INCREMENT, name varchar(255), description varchar(255), c_id int,u_id int, location varchar(255),longitude varchar(255), latitude varchar(255), fees varchar(255), ticket varchar(5000), date varchar(255), start_time varchar(255), end_time varchar(255), website varchar(255),image_name varchar(255),image_length varchar(255), FOREIGN KEY(c_id) REFERENCES category(c_id),FOREIGN KEY(u_id) REFERENCES users(u_id));
 
-create table reviews(r_id int PRIMARY KEY AUTO_INCREMENT, e_id int, reviews varchar(255),FOREIGN KEY(e_id) REFERENCES event(e_id));
+create table reviews(r_id int PRIMARY KEY AUTO_INCREMENT, e_id int, reviews varchar(255),FOREIGN KEY(e_id) REFERENCES events(e_id));
 
 
 

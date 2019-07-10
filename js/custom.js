@@ -2,7 +2,7 @@ var Api='';
 
 
 if(window.location.href.includes("localhost")){
-    Api = "http://localhost:8080/event/";
+    Api = "http://localhost/event/";
 }
 else{
     Api="http://softmaticsolution.com/devtolu/"
@@ -126,12 +126,25 @@ function addEvent(){
         let eventLatitude = document.getElementById("eventLatitude").value;
         let eventFees = document.getElementById("eventFees").value;
 
-        var eventTicket =[];
+        // var eventTicket =[];
+
+        var eventTicket;
         for(var i =0 ; i<ticketCount+1 ; i++){
-            eventTicket.push(document.getElementById("eventTicket"+i).value);
+            if(i==0){
+                eventTicket = "[";
+                eventTicket += `"`+document.getElementById("eventTicket"+i).value+`"`;
+            }else{
+                eventTicket += `,"`+document.getElementById("eventTicket"+i).value+`"`;
+
+            }
+           
+            if(i == ticketCount){
+                eventTicket += "]";
+            }
+
         }
 
-        console.log("ticketCount", ticketCount);
+        console.log("eventTicket", eventTicket);
 
 
         let eventDateInput = document.getElementById("eventDateInput").value;
@@ -154,7 +167,7 @@ function addEvent(){
         // console.log(eventTicket)
         // eventTicket ="blah";
 
-        eventTicket = eventTicket.toString();
+        // eventTicket = eventTicket.toString();
 
         let userId = accessCookie("userId");
         
@@ -255,6 +268,16 @@ function blogin(){
    
 }
 
+
+function logout(){
+
+    createCookie("role","");
+    createCookie("userId","");
+    createCookie("username","");
+    window.location.href = "index.php";
+
+
+}
 function register(){
 
     let checkRequired =true;
@@ -312,6 +335,16 @@ function register(){
 
 }
 function onLoadFunction(param){
+
+    document.getElementById("headerName").innerHTML = accessCookie("username");
+console.log(accessCookie("role"));
+    if(accessCookie("role") == "Organizer"){
+        console.log("Reach inside meu");
+        document.getElementById("categoryMenu").style.display = "none";
+        // document.getElementById("eventListMenu").style.display = "none";
+        document.getElementById("manageUserMenu").style.display = "none";
+        // document.getElementById("dashboardMenu").style.display = "none";
+    }
 
     if(param == "eventPage"){
         document.title = "EVENT";

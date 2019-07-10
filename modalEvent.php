@@ -17,9 +17,9 @@
                         <!-- ============================================================== -->
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 
-                        <div class="row">
+                        <!-- <div class="row">
                         <span id="addToCalenderButton" class="offset-lg-9"></span>
-                        </div>
+                        </div> -->
 
                         <div class="form-group row">
                                             <label class="col-12 col-sm-3 col-form-label text-sm-right">Event Id: </label>
@@ -29,6 +29,16 @@
                                                 <!-- <span id="supplierId"></span> -->
                                             </div>
                                         </div>
+
+                        <div class="form-group row">
+                            <label class="col-12 col-sm-3 col-form-label text-sm-right">User Name: </label>
+                            <div class="col-12 col-sm-10 col-lg-8">
+                            <input type="text" id="userNameId" class="form-control" disabled>
+
+                                <!-- <span id="supplierId"></span> -->
+                            </div>
+                        </div>
+
 
 
 
@@ -78,9 +88,17 @@
                                         </div>
 
                                         <div class="form-group row">
-                                            <label class="col-12 col-sm-3 col-form-label text-sm-right">Event Map Link</label>
+                                            <label class="col-12 col-sm-3 col-form-label text-sm-right">Longitude</label>
                                             <div class="col-12 col-sm-10 col-lg-8">
-                                                <input type="text" required="" id="sEventMap" placeholder="Type Map Lin" class="form-control">
+                                                <input type="text" required="" id="slongitude" placeholder="Type Map Lin" class="form-control">
+                                            </div>
+
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-12 col-sm-3 col-form-label text-sm-right">Latitude</label>
+                                            <div class="col-12 col-sm-10 col-lg-8">
+                                                <input type="text" required="" id="slatitude" placeholder="Type Map Lin" class="form-control">
                                             </div>
 
                                         </div>
@@ -94,6 +112,28 @@
                                             </div>
 
                                         </div>
+                                        <div class=" row" >
+                                            <div class=" offset-lg-9">
+                                        <button class="btn btn-primary " onclick="eventModalTicketAddFunction()">Add More</button>
+                                        </div>
+                                            
+                                            
+                                        </div>
+
+
+                                        <div class="form-group row">
+                                        <!-- <button class="btn btn-primary" style="margin-bottom:5px; float:right" onclick="eventModalTicketAddFunction()">Add More</button> -->
+
+                                            <label class="col-12 col-sm-3 col-form-label text-sm-right">Event Tickets</label>
+                                            <div class="col-12 col-sm-10 col-lg-8">
+                                                <input type="text"  id="sEventTicket0"  class="form-control mb-2">
+                                                <span id="eventModalTicketSpan"></span>
+                                            </div>
+
+                                        </div>
+
+
+
 
                                         <div class="form-group row">
 

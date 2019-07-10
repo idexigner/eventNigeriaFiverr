@@ -3,7 +3,7 @@ var ticketCount = 0;
 
 
 if(window.location.href.includes("localhost")){
-    Api = "http://localhost:8080/event/";
+    Api = "http://localhost/event/";
 }
 else{
     Api="http://softmaticsolution.com/devtolu/";
@@ -175,12 +175,17 @@ function categoryDelete(){
 
 
 function eventTableLoad(){
+    fetchApi ='';
+    
+   id=accessCookie("userId");
+   console.log(id);
 
 
-    fetch(Api+'backend/showEventTable.php', {
+    fetch( Api+'backend/showEventTable.php', {
      method: 'POST',
      body: JSON.stringify({
-       
+       id:id,
+       role:accessCookie("role")
      }),    
      headers: new Headers({
          'content-type': 'application/json',
@@ -214,12 +219,13 @@ function showeventTable(data){
              <td>${data.description}</td>
              <td>${data.c_name}</td>
              <td>${data.location}</td>
-             <td>${data.map_link}</td>
+             
              <td>${data.fees}</td>
+             
              <td>${data.date}</td>
              <td>${data.start_time}</td>
              <td>${data.end_time}</td>
-             <td>${data.website}</td>
+           
          </tr>
          `;
 }
@@ -256,37 +262,33 @@ function eventOnclickFunction(){
             console.log(responseJson);
             var obj=responseJson[0];
 
-            document.getElementById("addToCalenderButton").innerHTML=""; 
-            addToCalender = obj.addToCalender;
-             var btnTag,btnTextNode;
-            if(addToCalender == "no"){
-                btnTag = document.createElement("button");
-                btnTag.setAttribute("class","btn btn-success btn-lg ");
-                btnTag.setAttribute("onClick","addToCalenderFunction('yes','event','"+obj.e_id+"')");
-                btnTag.setAttribute("value","no");
-                btnTag.setAttribute("id","btnAddToCalender");
+            // document.getElementById("addToCalenderButton").innerHTML=""; 
+            // addToCalender = obj.addToCalender;
+            //  var btnTag,btnTextNode;
+            // if(addToCalender == "no"){
+            //     btnTag = document.createElement("button");
+            //     btnTag.setAttribute("class","btn btn-success btn-lg ");
+            //     btnTag.setAttribute("onClick","addToCalenderFunction('yes','event','"+obj.e_id+"')");
+            //     btnTag.setAttribute("value","no");
+            //     btnTag.setAttribute("id","btnAddToCalender");
 
-                btnTextNode = document.createTextNode("Add To Calender");
+            //     btnTextNode = document.createTextNode("Add To Calender");
 
-                btnTag.appendChild(btnTextNode);
-                document.getElementById("addToCalenderButton").appendChild(btnTag);
-            }else{
-                btnTag = document.createElement("button");
-                btnTag.setAttribute("class","btn btn-warning btn-lg ");
-                btnTag.setAttribute("onClick","addToCalenderFunction('no','event','"+obj.e_id+"')");
-                btnTag.setAttribute("value","yes");
-                btnTag.setAttribute("id","btnAddToCalender");
+            //     btnTag.appendChild(btnTextNode);
+            //     document.getElementById("addToCalenderButton").appendChild(btnTag);
+            // }else{
+            //     btnTag = document.createElement("button");
+            //     btnTag.setAttribute("class","btn btn-warning btn-lg ");
+            //     btnTag.setAttribute("onClick","addToCalenderFunction('no','event','"+obj.e_id+"')");
+            //     btnTag.setAttribute("value","yes");
+            //     btnTag.setAttribute("id","btnAddToCalender");
                 
-                btnTextNode = document.createTextNode("Remove From Calender");
+            //     btnTextNode = document.createTextNode("Remove From Calender");
 
-                btnTag.appendChild(btnTextNode);
-                document.getElementById("addToCalenderButton").appendChild(btnTag);
-            }
+            //     btnTag.appendChild(btnTextNode);
+            //     document.getElementById("addToCalenderButton").appendChild(btnTag);
+            // }
             
-
-
-
-
 
             document.getElementById("imgModalEvent").innerHTML ="";
 
@@ -308,14 +310,31 @@ function eventOnclickFunction(){
                 imgModalEvent.appendChild(anchor);
             }
 
+            console.log("Tickets")
+
+            console.log(eval(obj.ticket));
 
             document.getElementById("eventId").value =obj.e_id;
+            document.getElementById("userNameId").value =obj.u_name;
+            
             document.getElementById("sEventName").value =obj.name;
             document.getElementById("seventDesc").value =obj.description;
             document.getElementById("seventCategoryDropdown").value =obj.c_id;
             document.getElementById("sEventLocation").value =obj.location;
-            document.getElementById("sEventMap").value =obj.map_link;
+            document.getElementById("slongitude").value =obj.longitude;
+            document.getElementById("slatitude").value =obj.latitude;
             document.getElementById("sEventFees").value =obj.fees;
+
+            ticket = eval(obj.ticket);
+            document.getElementById("eventModalTicketSpan").innerHTML ="";
+            for(var j = 0 ; j < ticket.length;j++){
+                if(j!=0){
+                    eventModalTicketAddFunction();
+                }
+                document.getElementById("sEventTicket"+j).value = ticket[j];
+            }
+
+
             document.getElementById("seventDateInput").value =obj.date;
             document.getElementById("seventStartTimeInput").value =obj.start_time;
             document.getElementById("seventEndTimeInput").value =obj.end_time;
@@ -337,7 +356,7 @@ function eventOnclickFunction(){
 
 function eventUpdate(){
 
-    let btnAddToCalender = document.getElementById("btnAddToCalender").value;
+    // let btnAddToCalender = document.getElementById("btnAddToCalender").value;
 
     let eventId = document.getElementById("eventId").value;
     let eventName = document.getElementById("sEventName").value;
@@ -347,8 +366,27 @@ function eventUpdate(){
     var categoryValue = categoryDrop.options[categoryDrop.selectedIndex].value;
 
     let eventLocation = document.getElementById("sEventLocation").value;
-    let eventMap = document.getElementById("sEventMap").value;
+    let longitude = document.getElementById("slongitude").value;
+    let latitude = document.getElementById("slatitude").value;
     let eventFees = document.getElementById("sEventFees").value;
+
+    var eventTicket;
+    for(var i =0 ; i<ticketCount+1 ; i++){
+        if(i==0){
+            eventTicket = "[";
+            eventTicket += `"`+document.getElementById("sEventTicket"+i).value+`"`;
+        }else{
+            eventTicket += `,"`+document.getElementById("sEventTicket"+i).value+`"`;
+
+        }
+       
+        if(i == ticketCount){
+            eventTicket += "]";
+        }
+
+    }
+
+
     let eventDateInput = document.getElementById("seventDateInput").value;
     let eventStartTimeInput = document.getElementById("seventStartTimeInput").value;
     let eventEndTimeInput = document.getElementById("seventEndTimeInput").value;
@@ -376,15 +414,17 @@ function eventUpdate(){
             eventDescription:eventDescription,
             categoryValue:categoryValue,
             eventLocation:eventLocation,
-            eventMap:eventMap,
+            longitude:longitude,
+            latitude:latitude,
             eventFees:eventFees,
+            eventTicket:eventTicket,
             eventDateInput:eventDateInput,
             eventStartTimeInput:eventStartTimeInput,
             eventEndTimeInput:eventEndTimeInput,
             eventWebsite:eventWebsite,
             PicName:PicName,
             PicLength:PicLength,
-            btnAddToCalender:btnAddToCalender,
+            
       
         }),
         headers: new Headers({
@@ -459,6 +499,20 @@ function eventTicketAddFunction(){
     inputTag.setAttribute("placeholder","Type Event Ticket");
     
     document.getElementById("eventTicketSpan").appendChild(inputTag);
+
+}
+
+
+function eventModalTicketAddFunction(){
+    ticketCount++;
+
+    var inputTag = document.createElement("input");
+    inputTag.setAttribute("type","text");
+    inputTag.setAttribute("class","form-control mb-2");
+    inputTag.setAttribute("id","sEventTicket"+ticketCount);
+    inputTag.setAttribute("placeholder","Type Event Ticket");
+    
+    document.getElementById("eventModalTicketSpan").appendChild(inputTag);
 
 }
 
@@ -656,13 +710,16 @@ function userPageLoad(){
     .then((response) => response.json())
     .then((responseJson) =>{
         console.log(responseJson);
+       
+
+        document.getElementById("userPageBody").innerHTML = "";
 
         var userPageBody = document.getElementById("userPageBody");
 
         var row = document.createElement("div");
         row.setAttribute("class","row");
         userPageBody.appendChild(row);
-
+        if(responseJson != "No Data"){
 
        
     for(var i =0; i<responseJson.length;i++){
@@ -727,6 +784,7 @@ function userPageLoad(){
         cardBodyDiv.appendChild(button2);
 
         
+}
 }
     
  

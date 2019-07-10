@@ -47,12 +47,14 @@
                         <th>Description</th>
                         <th>Category</th>
                         <th>Location</th>
-                        <th>Map</th>
+                        <!-- <th>Longitude</th>
+                        <th>Latitude</th> -->
                         <th>Fees</th>
+                        
                         <th>Date</th>
                         <th>Start Time</th>
                         <th>End Time</th>
-                        <th>Website</th>
+                        <!-- <th>Website</th> -->
                                               
                     </tr>
                 </thead>
@@ -64,13 +66,14 @@
                         <th>Description</th>
                         <th>Category</th>
                         <th>Location</th>
-                        <th>Map</th>
+                        <!-- <th>Longitude</th>
+                        <th>Latitude</th> -->
                         <th>Fees</th>
+                        
                         <th>Date</th>
                         <th>Start Time</th>
                         <th>End Time</th>
-                        <th>Website</th>
-                        
+                        <!-- <th>Website</th> -->
                     </tr>
                 </tfoot>
             </table>

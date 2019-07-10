@@ -41,16 +41,16 @@ $q = mysqli_query($con,$que);
 $rows1 = mysqli_fetch_array($q);
 
 
-      $que2="select count(*) from event";
+      $que2="select count(*) from events";
 
     $q2 = mysqli_query($con,$que2);
     $rows2 = mysqli_fetch_array($q2);
 
 
-    $que3="select count(*) from event where addToCalender='yes'";
+    // $que3="select count(*) from event where addToCalender='yes'";
 
-    $q3 = mysqli_query($con,$que3);
-    $rows3 = mysqli_fetch_array($q3);
+    // $q3 = mysqli_query($con,$que3);
+    // $rows3 = mysqli_fetch_array($q3);
 
 
 
@@ -107,7 +107,7 @@ $rows1 = mysqli_fetch_array($q);
                             <!-- ============================================================== -->
                             <!-- visitor  -->
                             <!-- ============================================================== -->
-                            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+                            <!-- <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
                                 <div class="card border-3 border-top border-top-primary">
                                     <div class="card-body">
                                         <h5 class="text-muted">Calender</h5>
@@ -117,7 +117,7 @@ $rows1 = mysqli_fetch_array($q);
                                         
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <!-- ============================================================== -->
                             <!-- end visitor  -->
                             <!-- ============================================================== -->
@@ -176,6 +176,10 @@ $rows1 = mysqli_fetch_array($q);
     <script src="assets/vendor/charts/c3charts/d3-5.4.0.min.js"></script>
     <script src="assets/vendor/charts/c3charts/C3chartjs.js"></script>
     <script src="assets/libs/js/dashboard-ecommerce.js"></script>
+<script src="js/custom.js"></script>
+    <script>
+    window.onload = onLoadFunction('dashboard');
+    </script>
 </body>
  
 </html>

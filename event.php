@@ -63,7 +63,7 @@
 
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb-3">
                                             <label for="">Event Location <span class="requiredField">*</span></label>
-                                                <input type="text" class="form-control" id="eventLocation" placeholder="Type Event Map Link"  >
+                                                <input type="text" class="form-control" id="eventLocation" placeholder="Type Event Location"  >
                                                 
                                                 
                                                 

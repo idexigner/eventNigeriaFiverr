@@ -13,7 +13,7 @@
                             <li class="nav-divider">
                                 Menu
                             </li>
-                            <li class="nav-item ">
+                            <li class="nav-item " id="dashboardMenu">
                                 <a class="nav-link " href="dashboard.php" ><i class="fa fa-fw fa-user-circle"></i>Dashboard</a>
                                 <div id="submenu-1" class="collapse submenu" style="">
                                     <!-- <ul class="nav flex-column">
@@ -61,23 +61,23 @@
                                     </ul> -->
                                 </div>
                             </li>
-                            <li class="nav-item ">
+                            <li class="nav-item " id="categoryMenu">
                                 <a class="nav-link" href="category.php" ><i class="fa fa-fw fa-people-carry"></i>Category</a>
                             </li>
-                            <li class="nav-item ">
+                            <li class="nav-item " id="eventMenu">
                                 <a class="nav-link" href="event.php" ><i class="fa fa-fw fa-user"></i>Event</a>
                             </li>
-                            <li class="nav-item ">
+                            <li class="nav-item " id="eventListMenu">
                                 <a class="nav-link" href="eventList.php" ><i class="fa fa-fw fa-cubes"></i>Event List</a>
                             </li>
 
-                            <li class="nav-item ">
+                            <li class="nav-item " id="manageUserMenu">
                                 <a class="nav-link" href="manageUser.php" ><i class="fa fa-fw fa-chart-pie"></i>Manage User</a>
                             </li>
 
-                            <li class="nav-item ">
+                            <!-- <li class="nav-item " >
                                 <a class="nav-link" href="calender.php" ><i class="fa fa-fw fa-chart-pie"></i>Calender</a>
-                            </li>
+                            </li> -->
                             <!-- <li class="nav-item">
                                 <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2"><i class="fa fa-fw fa-rocket"></i>UI Elements</a>
                                 <div id="submenu-2" class="collapse submenu" style="">
