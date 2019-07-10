@@ -3,7 +3,7 @@ var ticketCount = 0;
 
 
 if(window.location.href.includes("localhost")){
-    Api = "http://localhost/event/";
+    Api = "http://localhost:8080/event/";
 }
 else{
     Api="http://softmaticsolution.com/devtolu/";
@@ -225,6 +225,7 @@ function showeventTable(data){
              <td>${data.date}</td>
              <td>${data.start_time}</td>
              <td>${data.end_time}</td>
+             <td>${data.approve}</td>
            
          </tr>
          `;
@@ -341,6 +342,12 @@ function eventOnclickFunction(){
             document.getElementById("sEventWebsite").value =obj.website;
             document.getElementById("sPicName").value =obj.image_name;
             document.getElementById("sPicLength").value =obj.image_length;
+            // document.getElementById("sPicLength").value =obj.image_length;
+            document.getElementById("sapprove").value =obj.approve;
+
+            if(accessCookie("role") != "Admin"){
+                document.getElementById("adminApproveDivEvent").style.display = "none";
+            }
            
         })
         .catch((error)=>{
@@ -404,6 +411,8 @@ function eventUpdate(){
     }
     PicName = document.getElementById("sPicName").value;
     PicLength = document.getElementById("sPicLength").value;
+
+    approve = document.getElementById("sapprove").value;
    
 
     fetch(Api+'backend/updateEvent.php', {
@@ -424,6 +433,7 @@ function eventUpdate(){
             eventWebsite:eventWebsite,
             PicName:PicName,
             PicLength:PicLength,
+            approve:approve,
             
       
         }),
@@ -517,6 +527,143 @@ function eventModalTicketAddFunction(){
 }
 
 
+function eventApprovePageLoad(){
+
+
+     
+    fetch(Api+'backend/showEventNotApprove.php', {
+        method: 'POST',
+        body: JSON.stringify({
+          
+        }),    
+        headers: new Headers({
+            'content-type': 'application/json',
+            'Accept': 'application/json',
+        })
+    })
+    .then((response) => response.json())
+    .then((responseJson) =>{
+        console.log(responseJson);
+       
+
+        document.getElementById("eventPageBodyApprove").innerHTML = "";
+
+        var eventPageBodyApprove = document.getElementById("eventPageBodyApprove");
+
+        var row = document.createElement("div");
+        row.setAttribute("class","row");
+        eventPageBodyApprove.appendChild(row);
+        if(responseJson != "No Data"){
+
+       
+    for(var i =0; i<responseJson.length;i++){
+        var obj = responseJson[i];
+   
+        
+        var parentDiv = document.createElement("div");
+        parentDiv.setAttribute("class","col-xl-3 col-lg-6 col-md-6 col-sm-12 col-12");
+        row.appendChild(parentDiv);
+
+        var cardDiv = document.createElement("div");
+        cardDiv.setAttribute("class","card");
+        parentDiv.appendChild(cardDiv);
+
+        var cardBodyDiv = document.createElement("div");
+        cardBodyDiv.setAttribute("class","card-body");
+        cardDiv.appendChild(cardBodyDiv);
+
+        var h3 = document.createElement("h3");
+        h3.setAttribute("class","card-title");
+        h3.appendChild(document.createTextNode(obj.name));
+        cardBodyDiv.appendChild(h3);
+
+        var p = document.createElement("p");
+        p.setAttribute("class","card-text");
+        cardBodyDiv.appendChild(p);
+
+
+        var boldCategory = document.createElement("strong");
+        boldCategory.appendChild(document.createTextNode("Category: "));
+        p.appendChild(boldCategory);
+        p.appendChild(document.createTextNode(obj.c_name));
+        p.appendChild(document.createElement("br"));
+
+        var boldDate = document.createElement("strong");
+        boldDate.appendChild(document.createTextNode("Location: "));
+        p.appendChild(boldDate);
+        p.appendChild(document.createTextNode(obj.location));
+        p.appendChild(document.createElement("br"));
+
+        var boldRemaining = document.createElement("strong");
+        boldRemaining.appendChild(document.createTextNode("Username: "));
+        p.appendChild(boldRemaining);        
+        p.appendChild(document.createTextNode(obj.u_name));
+        p.appendChild(document.createElement("br"));
+
+
+    
+
+        var button = document.createElement("button");
+        button.setAttribute("class","btn btn-success mr-2");
+        button.setAttribute("onclick","approveEvent('"+obj.e_id+"','yes')");
+        button.appendChild(document.createTextNode("Approve"));
+
+        cardBodyDiv.appendChild(button);
+
+        var button2 = document.createElement("button");
+        button2.setAttribute("class","btn btn-danger");
+        button2.setAttribute("onclick","approveEvent('"+obj.e_id+"','reject')");
+        button2.appendChild(document.createTextNode("Reject"));
+
+        cardBodyDiv.appendChild(button2);
+
+        
+}
+}
+    
+ 
+        
+    })
+    .catch((error)=>{
+    console.error(error);
+      });
+
+
+
+}
+
+
+function approveEvent(id,param){
+
+    
+
+    fetch(Api+'backend/approveEvent.php', {
+        method: 'POST',
+        body: JSON.stringify({
+            id:id,
+            approve:param,
+        }),
+        headers: new Headers({
+          'Content-Type': 'application/json',
+        })
+        
+    })
+    .then((response) => response.json())
+        .then((responseJson) => {
+           
+            alert("Successfully Updated");
+            
+            window.location.href  = "eventList.php";           
+        })
+        .catch((error)=>{
+            // alert(error);
+             alert("Not Updated");
+             window.location.href  = "eventList.php";
+            
+        });
+
+
+}
 
 function userTableLoad(){
 

@@ -198,6 +198,20 @@
                                             </form> 
                                             </div>
 
+                                        <div class="form-group row" id="adminApproveDivEvent">
+                                            <label class="col-12 col-sm-3 col-form-label text-sm-right">Approved</label>
+                                            <div class="col-12 col-sm-10 col-lg-8">
+                                            <select class="form-control" id="sapprove">
+                                                <option value="">Select Approve Status</option>
+                                                <option value="yes">Yes</option>
+                                                <option value="no">No</option>
+                                                <option value="reject">Reject</option>
+                                                </select>                                                
+                                        </div>
+                                        </div>
+
+
+
                                        
 
 

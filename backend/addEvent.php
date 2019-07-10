@@ -23,10 +23,19 @@ include 'DBConfig.php';
      $PicName = htmlspecialchars($obj['PicName']);
      $picLength = htmlspecialchars($obj['picLength']);
      $userId = htmlspecialchars($obj['userId']);
+     $role = htmlspecialchars($obj['role']);
      
 
-    
-    $result = $con->query("insert into events(name, description, c_id, location, longitude, latitude, fees, ticket, date, start_time, end_time, website,image_name,image_length,u_id) values ('$eventName','$eventDesc','$categoryValue','$eventLocation','$eventLongitude','$eventLatitude','$eventFees','$eventTicket','$eventDateInput','$eventStartTimeInput','$eventEndTimeInput','$eventWebsite','$PicName','$picLength','$userId')");
+
+     $result  = "";
+    if($role == "Admin"){
+      $result = $con->query("insert into events(name, description, c_id, location, longitude, latitude, fees, ticket, date, start_time, end_time, website,image_name,image_length,u_id,approve) values ('$eventName','$eventDesc','$categoryValue','$eventLocation','$eventLongitude','$eventLatitude','$eventFees','$eventTicket','$eventDateInput','$eventStartTimeInput','$eventEndTimeInput','$eventWebsite','$PicName','$picLength','$userId','yes')");
+
+    }
+    else{
+      $result = $con->query("insert into events(name, description, c_id, location, longitude, latitude, fees, ticket, date, start_time, end_time, website,image_name,image_length,u_id,approve) values ('$eventName','$eventDesc','$categoryValue','$eventLocation','$eventLongitude','$eventLatitude','$eventFees','$eventTicket','$eventDateInput','$eventStartTimeInput','$eventEndTimeInput','$eventWebsite','$PicName','$picLength','$userId','no')");
+
+    }
 
    //  $result = $con->query("insert into events(name) values ('enven')");
 

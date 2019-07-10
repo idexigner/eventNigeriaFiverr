@@ -28,7 +28,7 @@
             <!-- end pageheader -->
             <!-- ============================================================== -->
          
-            
+            <span id="eventPageBodyApprove" style="width:100%;"></span>
                  <!-- ============================================================== -->
                     <!-- hoverable table -->
                     <!-- ============================================================== -->
@@ -54,6 +54,7 @@
                         <th>Date</th>
                         <th>Start Time</th>
                         <th>End Time</th>
+                        <th>Approve</th>
                         <!-- <th>Website</th> -->
                                               
                     </tr>
@@ -73,6 +74,7 @@
                         <th>Date</th>
                         <th>Start Time</th>
                         <th>End Time</th>
+                        <th>Approve</th>
                         <!-- <th>Website</th> -->
                     </tr>
                 </tfoot>

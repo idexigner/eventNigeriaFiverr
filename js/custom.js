@@ -2,7 +2,7 @@ var Api='';
 
 
 if(window.location.href.includes("localhost")){
-    Api = "http://localhost/event/";
+    Api = "http://localhost:8080/event/";
 }
 else{
     Api="http://softmaticsolution.com/devtolu/"
@@ -170,6 +170,8 @@ function addEvent(){
         // eventTicket = eventTicket.toString();
 
         let userId = accessCookie("userId");
+
+        let role = accessCookie("role")
         
 
         fetch(Api+'backend/addEvent.php', {
@@ -190,6 +192,7 @@ function addEvent(){
                 PicName:PicName,
                 picLength: picLength,
                 userId:userId,
+                role:role,
                
             }),
             headers: new Headers({
@@ -357,6 +360,10 @@ console.log(accessCookie("role"));
     }
     else if(param == "eventListPage"){
         document.title = "EVENT LIST";
+        if(accessCookie("role") == "Admin"){
+            eventApprovePageLoad();
+        }
+        
         eventTableLoad();
         eventCategoryDropdown("#seventCategoryDropdown");
     }

@@ -24,6 +24,7 @@ include 'DBConfig.php';
      $eventWebsite = $obj['eventWebsite'];
      $PicName = $obj['PicName'];
      $PicLength = $obj['PicLength'];
+     $approve = $obj['approve'];
    
     //  $s_id = $obj['s_id'];
     //  $categoryName = $obj['categoryName'];
@@ -31,7 +32,7 @@ include 'DBConfig.php';
 
 
 
-    $result= $con->query("update events set name='$eventName',  description='$eventDescription', c_id='$categoryValue', location='$eventLocation', longitude='$longitude',latitude='$latitude', fees='$eventFees',ticket='$eventTicket', date='$eventDateInput', start_time='$eventStartTimeInput', end_time='$eventEndTimeInput', website='$eventWebsite', image_name='$PicName', image_length='$PicLength'  where e_id='$eventId'");
+    $result= $con->query("update events set name='$eventName',  description='$eventDescription', c_id='$categoryValue', location='$eventLocation', longitude='$longitude',latitude='$latitude', fees='$eventFees',ticket='$eventTicket', date='$eventDateInput', start_time='$eventStartTimeInput', end_time='$eventEndTimeInput', website='$eventWebsite', image_name='$PicName', image_length='$PicLength',approve='$approve' where e_id='$eventId'");
 	
     if($result){
 				echo json_encode("Success");
